@@ -1,0 +1,31 @@
+﻿@model TravelTrip.Models.Siniflar.Blog
+
+@{
+    ViewBag.Title = "BlogGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Güncelleme Sayfası</h2>
+<br />
+
+@*BlogGetir ActionResult çalıştığı zaman, hangi controller içinde, hangi method kullanılacak demek.*@
+@using (Html.BeginForm("BlogGetir", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Id)
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BlogImage)
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Blog Güncelle</button>
+}
+
